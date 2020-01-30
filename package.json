@@ -1,0 +1,22 @@
+{
+  "name": "promises_and_-async_await",
+  "version": "1.0.0",
+  "description": "JavaScript promises and Async await functions in practice in order to write a non-blocking code in Node.js backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ISHaNT-CHaHaR/PROMISES_and_-ASync_Await.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ISHaNT-CHaHaR/PROMISES_and_-ASync_Await/issues"
+  },
+  "homepage": "https://github.com/ISHaNT-CHaHaR/PROMISES_and_-ASync_Await#readme",
+  "dependencies": {
+    "superagent": "^5.2.1"
+  }
+}
