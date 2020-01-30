@@ -1,26 +1,19 @@
-const fs=require('fs');
-const superagent = require('superagent')
+const fs = require('fs');
+const superagent = require('superagent');
 
-
-fs.readFile(`${__dirname}/dog.txt`,(err,data)=>{
+fs.readFile(`${__dirname}/dog.txt`, (err, data) => {
    console.log(`Breed: ${data}`);
-       
+
    superagent
-       .get(`https://dog.ceo/api/breed/${data}/images/random`)
-       .then(res=>{
-        
-      console.log(res.body.message); 
+      .get(`https://dog.ceo/api/breed/${data}/images/random`)
+      .then((res) => {
+         console.log(res.body.message);
 
-
-      fs.writeFile('dog-ig.txt', res.body.message,err=>{
-          console.log(`Random dog image save to file!`);
+         fs.writeFile('dog-ig.txt', res.body.message, (err) => {
+            console.log(`Random dog image save to file!`);
+         });
+      })
+      .catch((err) => {
+         console.log(err.message);
       });
-       })
-       .catch(err=>{
-           console.log(err.message);
-       })
-       
-    
-
-
-    });
+});
