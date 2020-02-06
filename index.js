@@ -1,5 +1,6 @@
 const fs = require('fs');
 const superagent = require('superagent');
+
 const readFilePro = (file) => {
    return new Promise((resolve, reject) => {
       //Promise~ it is.
@@ -16,13 +17,13 @@ const writeFilePro = (file, data) => {
    return new Promise((reject, resolve) => {
       fs.writeFile(file, data, (err) => {
          if (err) {
-            console.log('Could not write a file!');
+            reject('Could not write a file!');
          }
-         resolve(`success`);
+         resolve(data);
       });
    });
 };
-
+/*
 readFilePro(`${__dirname}/dog.txt`)
    .then((data) => {
       console.log(`Breed: ${data}`);
@@ -32,11 +33,19 @@ readFilePro(`${__dirname}/dog.txt`)
    .then((res) => {
       console.log(res.body.message);
 
-      fs.writeFile('dog-ig.txt', res.body.message, (err) => {
-         console.log(`Random dog image save to file!`);
-      });
+      return writeFilePro('dog-img.txt', res.body.message);
+   })
+   .then(() => {
+      console.log(`ok!`);
    })
 
    .catch((err) => {
-      console.log(err.message);
+      console.log(err);
    });
+
+//fs.writeFile('dog-ig.txt', res.body.message, (err) => {
+// console.log(`Random dog image save to file!`);
+//});
+//})*/
+
+
